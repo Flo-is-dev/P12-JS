@@ -1,22 +1,19 @@
-import Aside from './components/Aside'
-import Content from './components/Content'
-import Navigation from './components/Navigation'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import User from "./pages/User";
+import Error from "./pages/Error";
 import './index.css'
 
 
-function App() {
-
+const App = () => {
   return (
-    <div className='appContainer'>
-        <Navigation/>
-        <Aside/>
-        <div className='contentContainer'>
-            <h1>Bonjour <span className='red'>Thomas</span></h1>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-            <Content/>
-        </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/User" element={<User />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
 export default App

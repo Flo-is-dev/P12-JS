@@ -23,7 +23,8 @@
   src: url("./assets/fonts/Roboto/Roboto-Bold.ttf");
 }
 
-body {
+body,
+button {
   font-family: "roboto regular", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   /* background-color: gray; */
@@ -31,12 +32,13 @@ body {
 
 .appContainer {
   max-width: 1440px;
+  height: 100vh;
   margin: auto;
   background-color: white;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 500;
   font-family: "roboto bold", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -52,18 +54,150 @@ a {
   font-size: 18px;
 }
 
+p {
+  font-size: 16px;
+}
+
 .red {
   color: var(--main-color-red);
 }
 
+/* --------------------------------------------------------- */
+/* --------------login page---------------------- */
+/* --------------------------------------------------------- */
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #c1d0ff, #facedd);
+  position: relative;
+}
+
+.background span.title {
+  font-size: 1.5rem;
+  align-self: baseline;
+}
+
+.loginCardContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 50px;
+  gap: 50px;
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 20%) !important;
+}
+
+.loginContainer {
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btnUserContainer {
+  display: flex;
+  gap: 25px;
+}
+
+.btnUserContainer button {
+  background-color: transparent;
+  border: 1px solid rgb(221, 221, 221);
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  user-select: none;
+  transition: translate 0.2s, box-shadow 0.2s;
+}
+.btnUserContainer button:hover {
+  box-shadow: 0 10px 20px 0 rgba(181, 36, 36, 0.2);
+  translate: 0px -2px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--main-color-red);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.switch::before {
+  content: "mock";
+  position: absolute;
+  left: -80%;
+  top: 25%;
+  width: 50px;
+  font-size: 15px;
+}
+.switch::after {
+  content: "call API";
+  position: absolute;
+  right: -100%;
+  top: 25%;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------- */
+/* --------------User page---------------------- */
+/* --------------------------------------------------------- */
+
 header {
-  height: 91px;
+  position: sticky;
+  height: 10vh;
   width: 100%;
   background-color: var(--main-bg-black);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .logo {
@@ -71,7 +205,11 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
+}
+
+.logo img {
+  scale: 0.8;
 }
 
 nav {
@@ -85,10 +223,12 @@ nav ul {
 }
 
 aside {
-  position: fixed;
+  position: absolute;
+  top: 0;
   background-color: var(--main-bg-black);
-  height: calc(100vh - 91px);
-  width: 117px;
+  height: 100vh;
+  max-width: 100px;
+  width: 10vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +239,11 @@ aside {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 10px; */
+}
+
+.asideIconContainer img {
+  scale: 0.8;
 }
 
 aside small {
@@ -116,11 +260,11 @@ aside small {
 
 .contentContainer {
   margin: 0;
-  height: calc(100vh - 91px - 8vh);
-  width: calc(100% - 117px);
-  margin-left: 117px;
-  padding-left: calc(226px - 117px);
-  padding-top: calc(159px - 91px);
+  height: calc(100vh - 10vh);
+  width: calc(100% - 10vw);
+  margin-left: max(10vw, 100px);
+  padding-left: calc(226px - 10vw);
+  padding-top: calc(159px - 10vw);
   padding-right: 90px;
 }
 
@@ -130,12 +274,11 @@ aside small {
 }
 
 .contentBoard {
-  /* background-color: lightsalmon; */
+  background-color: lightsalmon;
   height: 75%;
   display: grid;
   gap: 28px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  /* grid-template-rows: repeat(2, minmax(1fr, auto)); */
   grid-template-areas:
     "ch ch ch ac"
     "li tl cr ac";
