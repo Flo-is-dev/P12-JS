@@ -259,13 +259,14 @@ aside small {
 }
 
 .contentContainer {
+  /* background-color: lightgreen; */
   margin: 0;
   height: calc(100vh - 10vh);
   width: calc(100% - 10vw);
   margin-left: max(10vw, 100px);
-  padding-left: calc(226px - 10vw);
-  padding-top: calc(159px - 10vw);
-  padding-right: 90px;
+  padding-left: 6vw;
+  padding-top: 5vh;
+  padding-right: 70px;
 }
 
 .contentContainer > p {
@@ -276,9 +277,10 @@ aside small {
 .contentBoard {
   background-color: lightsalmon;
   height: 75%;
+  max-width: 1025px;
   display: grid;
   gap: 28px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
     "ch ch ch ac"
     "li tl cr ac";
@@ -291,6 +293,7 @@ aside small {
 .activityCard {
   background-color: var(--main-bg-lightgray);
   border-radius: 5px;
+  /* max-height: calc(100% - 14px); */
 }
 
 .chart {
