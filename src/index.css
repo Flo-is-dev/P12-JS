@@ -297,7 +297,6 @@ aside small {
   grid-template-areas:
     "ch ch ch ac"
     "li tl cr ac";
-  padding: 14px;
   scale: 0.8;
   width: 85vw;
   margin-left: calc(-8vw - 5px);

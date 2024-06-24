@@ -21,10 +21,10 @@ const Login = () => {
                 
                 <span className="title">Select Profile:</span>
                 <div className="btnUserContainer">
-                    <NavLink to="/User">
+                    <NavLink to="/User/12">
                         <button>User 12</button>
                     </NavLink>
-                    <NavLink to="/User">
+                    <NavLink to="/User/18">
                         <button>User 18</button>
                     </NavLink>
                 </div>
