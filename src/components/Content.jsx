@@ -1,6 +1,7 @@
 import ActivityOverview from "./ActivityOverview"
 import DailyActivity from "./DailyActivity"
-import data from "../data.json";
+import AverageDuration from "./AverageDuration"
+// import data from "../data.json";
 
 
 const Content = () => {
@@ -12,7 +13,7 @@ const Content = () => {
   return (
     <div className="contentBoard">
         <DailyActivity />
-        <div className="line"></div>
+        <AverageDuration />
         <div className="toile"></div>
         <div className="cercle"></div>
         <ActivityOverview/>
