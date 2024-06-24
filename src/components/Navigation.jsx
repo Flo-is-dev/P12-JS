@@ -1,5 +1,7 @@
 import logo1 from "../assets/img/logo1.svg"
 import logo2 from "../assets/img/logo2.svg"
+import { NavLink } from "react-router-dom";
+
 
 const Navigation = () => {
   return (
@@ -10,7 +12,9 @@ const Navigation = () => {
         </div>
         <nav>
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><NavLink to="/">
+                        <button>Accueil</button>
+                    </NavLink></li>
                 <li><a href="#">Profil</a></li>
                 <li><a href="#">Réglage</a></li>
                 <li><a href="#">Communauté</a></li>

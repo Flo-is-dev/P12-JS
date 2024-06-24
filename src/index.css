@@ -222,6 +222,18 @@ nav ul {
   align-items: center;
 }
 
+nav button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
 aside {
   position: absolute;
   top: 0;
@@ -271,12 +283,13 @@ aside small {
 
 .contentContainer > p {
   margin-top: 2%;
-  margin-bottom: 6%;
+  /* margin-bottom: 6%; */
 }
 
 .contentBoard {
   background-color: lightsalmon;
-  height: 75%;
+  height: 90%;
+  min-width: 950px;
   max-width: 1025px;
   display: grid;
   gap: 28px;
@@ -284,6 +297,10 @@ aside small {
   grid-template-areas:
     "ch ch ch ac"
     "li tl cr ac";
+  padding: 14px;
+  scale: 0.8;
+  width: 85vw;
+  margin-left: -11%;
 }
 
 .chart,
@@ -293,6 +310,7 @@ aside small {
 .activityCard {
   background-color: var(--main-bg-lightgray);
   border-radius: 5px;
+
   /* max-height: calc(100% - 14px); */
 }
 
