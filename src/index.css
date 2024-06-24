@@ -300,7 +300,7 @@ aside small {
   padding: 14px;
   scale: 0.8;
   width: 85vw;
-  margin-left: -11%;
+  margin-left: calc(-8vw - 5px);
 }
 
 .chart,
