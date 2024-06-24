@@ -1,6 +1,7 @@
 import ActivityOverview from "./ActivityOverview"
 import DailyActivity from "./DailyActivity"
 import AverageDuration from "./AverageDuration"
+import UserPerformance from "./UserPerformance"
 // import data from "../data.json";
 
 
@@ -14,7 +15,7 @@ const Content = () => {
     <div className="contentBoard">
         <DailyActivity />
         <AverageDuration />
-        <div className="toile"></div>
+        <UserPerformance />
         <div className="cercle"></div>
         <ActivityOverview/>
     </div>
