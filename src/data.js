@@ -94,6 +94,7 @@ export const fetchCaloriesCount = async (userId) => {
 
 export const fetchLipidesCount = async (userId) => {
   try {
+    let url = mockVar ? "./data.json" : "localhost:3000/user/${userId}";
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
     if (response.ok) {

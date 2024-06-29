@@ -19,7 +19,7 @@ const UserPerformance = () => {
         loadData();
     }, [userId]);
 
-    // console.log("userPerformance",userPerformance);
+    console.log("userPerformance",userPerformance);
 
   return (
     <div className="toile">UserPerformance</div>

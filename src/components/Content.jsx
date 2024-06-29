@@ -3,6 +3,7 @@ import DailyActivity from "./DailyActivity"
 import AverageDuration from "./AverageDuration"
 import UserPerformance from "./UserPerformance"
 import UserScore from "./UserScore"
+import PropTypes from 'prop-types';
 // import data from "../data.json";
 
 
@@ -22,4 +23,11 @@ const Content = ({userScore}) => {
     </div>
   )
 }
+
+// TODO préciser le type correct -----------------------------------------------------
+Content.propTypes = {
+    userScore: PropTypes.string.isRequired
+  }
+
 export default Content
+
