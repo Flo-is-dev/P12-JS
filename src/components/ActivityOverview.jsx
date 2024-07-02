@@ -4,7 +4,7 @@ import activity3 from "../assets/img/carbs-icon.png"
 import activity4 from "../assets/img/fat-icon.png"
 // import data from "../data.json";
 import { useState, useEffect } from 'react';
-import { fetchCaloriesCount, fetchProteinesCount, fetchGlucidesCount, fetchLipidesCount } from '../data';
+import {fetchActivityOverview} from '../data';
 import { useParams } from 'react-router-dom';
 
 
@@ -26,15 +26,13 @@ const ActivityOverview = () => {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const calories = await fetchCaloriesCount(userId);
-                const proteins = await fetchProteinesCount(userId);
-                const carbs = await fetchGlucidesCount(userId);
-                const lipids = await fetchLipidesCount(userId);
+                const activity = await fetchActivityOverview(userId);
+               
                 setKeyData({
-                    calorieCount: calories,
-                    proteinCount: proteins,
-                    carbohydrateCount: carbs,
-                    lipidCount: lipids
+                    calorieCount: activity.calorieCount,
+                    proteinCount: activity.proteinCount,
+                    carbohydrateCount: activity.carbohydrateCount,
+                    lipidCount: activity.lipidCount
                 });
             } catch (error) {
                 console.error("Failed to fetch key data:", error);
@@ -43,7 +41,7 @@ const ActivityOverview = () => {
         loadData();
     }, [userId]);
 
-    // console.log(keyData);
+    // console.log("15926",keyData);
 
   return (
     <div className="activityContainer">

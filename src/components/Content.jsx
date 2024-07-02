@@ -26,7 +26,7 @@ const Content = ({userScore}) => {
 
 // TODO préciser le type correct -----------------------------------------------------
 Content.propTypes = {
-    userScore: PropTypes.string.isRequired
+    userScore: PropTypes.number.isRequired
   }
 
 export default Content

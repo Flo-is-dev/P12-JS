@@ -11,7 +11,7 @@ const AverageDuration = () => {
         const loadData = async () => {
             try {
                 const userAverageDuration = await getUserAverageSessions(userId);
-                setUserAverageDuration(userAverageDuration.data.sessions);
+                setUserAverageDuration(userAverageDuration);
             } catch (error) {
                 console.error("Failed to fetch key data:", error);
             }

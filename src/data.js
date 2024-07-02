@@ -30,7 +30,7 @@ export async function getUserAverageSessions(userId) {
       `http://localhost:3000/user/${userId}/average-sessions`
     );
     const averageSessionsData = response.data;
-    return averageSessionsData;
+    return averageSessionsData.data.sessions;
   } catch (error) {
     console.error("Error fetching user average sessions:", error);
     return null;
@@ -42,7 +42,7 @@ export async function getUserPerformance(userId) {
     const response = await axios.get(
       `http://localhost:3000/user/${userId}/performance`
     );
-    const performanceData = response.data;
+    const performanceData = response.data.data;
     return performanceData;
   } catch (error) {
     console.error("Error fetching user performance:", error);
@@ -50,12 +50,12 @@ export async function getUserPerformance(userId) {
   }
 }
 
-export const fetchGlucidesCount = async (userId) => {
+export const fetchActivityOverview = async (userId) => {
   try {
     const response = await fetch(`http://localhost:3000/user/${userId}`);
     const data = await response.json();
     if (response.ok) {
-      return data.data.keyData.carbohydrateCount;
+      return data.data.keyData;
     } else {
       throw new Error("Error fetching glucide count data");
     }
@@ -64,45 +64,19 @@ export const fetchGlucidesCount = async (userId) => {
   }
 };
 
-export const fetchProteinesCount = async (userId) => {
-  try {
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
-    const data = await response.json();
-    if (response.ok) {
-      return data.data.keyData.proteinCount;
-    } else {
-      throw new Error("Error fetching proteine count data");
-    }
-  } catch (error) {
-    throw new Error("Error fetching proteine count data:" + error);
-  }
-};
+// TODO exemple de de switch MOCK & CALL API
 
-export const fetchCaloriesCount = async (userId) => {
-  try {
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
-    const data = await response.json();
-    if (response.ok) {
-      return data.data.keyData.calorieCount;
-    } else {
-      throw new Error("Error fetching calorie count data");
-    }
-  } catch (error) {
-    throw new Error("Error fetching calorie count data:" + error);
-  }
-};
-
-export const fetchLipidesCount = async (userId) => {
-  try {
-    let url = mockVar ? "./data.json" : "localhost:3000/user/${userId}";
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
-    const data = await response.json();
-    if (response.ok) {
-      return data.data.keyData.lipidCount;
-    } else {
-      throw new Error("Error fetching lipide count data");
-    }
-  } catch (error) {
-    throw new Error("Error fetching lipide count data:" + error);
-  }
-};
+// export const fetchLipidesCount = async (userId) => {
+//     try {
+//       let url = mockVar ? "./data.json" : "localhost:3000/user/${userId}";
+//       const response = await fetch(`http://localhost:3000/user/${userId}`);
+//       const data = await response.json();
+//       if (response.ok) {
+//         return data.data.keyData.lipidCount;
+//       } else {
+//         throw new Error("Error fetching lipide count data");
+//       }
+//     } catch (error) {
+//       throw new Error("Error fetching lipide count data:" + error);
+//     }
+//   };

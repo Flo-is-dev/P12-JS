@@ -9,13 +9,15 @@ import { getUserInfo } from '../data';
 function User() {
     const { userId } = useParams(); 
     const [userName, setUserName] = useState("");
-    const [userScore, setUserScore] = useState("");
+    const [userScore, setUserScore] = useState(0);
 
     useEffect(() => {
         const loadData = async () => {
             try {
                 const userName = await getUserInfo(userId);
-                setUserScore(userName.data.todayScore
+                const todayScore = userName.data.todayScore;
+                const score = userName.data.score
+                setUserScore(todayScore ? todayScore : score
                 )
                 setUserName(userName.data.userInfos.firstName);
             } catch (error) {
@@ -25,7 +27,7 @@ function User() {
         loadData();
     }, [userId]);
 
-    console.log("userData",userScore);
+    console.log("***userData",userScore);
  
   return (
     <div className='appContainer'>

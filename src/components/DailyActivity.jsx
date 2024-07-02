@@ -7,13 +7,13 @@ const DailyActivity = () => {
     const { userId } = useParams(); 
     const [userDailyActivity, setUserDailyActivity] = useState("")
 
-    console.log("Activity quotidien",userDailyActivity);
+    // console.log("Activity quotidien",userDailyActivity);
 
     useEffect(() => {
         const loadData = async () => {
             try {
                 const userDailyActivity = await getUserAverageSessions(userId);
-                setUserDailyActivity(userDailyActivity.data.sessions);
+                setUserDailyActivity(userDailyActivity);
             } catch (error) {
                 console.error("Failed to fetch key data:", error);
             }

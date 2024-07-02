@@ -11,7 +11,7 @@ const UserPerformance = () => {
         const loadData = async () => {
             try {
                 const userPerformance = await getUserPerformance(userId);
-                setUserPerformance(userPerformance.data);
+                setUserPerformance(userPerformance);
             } catch (error) {
                 console.error("Failed to fetch key data:", error);
             }
