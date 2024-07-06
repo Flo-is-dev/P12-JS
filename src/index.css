@@ -309,7 +309,7 @@ aside small {
 .activityCard {
   background-color: var(--main-bg-lightgray);
   border-radius: 5px;
-  max-height: 40vh;
+  max-height: 36vh;
   /* max-height: calc(100% - 14px); */
 }
 
