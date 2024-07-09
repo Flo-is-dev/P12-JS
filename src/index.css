@@ -313,6 +313,10 @@ aside small {
   /* max-height: calc(100% - 14px); */
 }
 
+.toile {
+  background-color: var(--main-bg-gray);
+}
+
 .chart {
   grid-area: ch;
 }

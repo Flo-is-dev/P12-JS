@@ -61,6 +61,7 @@ import PropTypes from 'prop-types';
 
 
 const UserScore = ({ userScore }) => {
+    
     const data = [
         {
             name: 'Score',
@@ -78,7 +79,7 @@ const UserScore = ({ userScore }) => {
 
     return (
         <div className='cercle' style={{ width: '100%', height: 300, position: 'relative' }}>
-            <h3 style={{ marginLeft: 30 }}>Score</h3>
+            <h3 style={{ textAlign: 'center', position: 'absolute', top: '5%', left: '10%' }}>Score</h3>
             <ResponsiveContainer width="100%" height="100%">
                 <RadialBarChart
                     cx="50%"
@@ -88,18 +89,19 @@ const UserScore = ({ userScore }) => {
                     barSize={10}
                     data={data}
                     startAngle={90}
-                    endAngle={450}
+                    endAngle={150}
                 >
                     <RadialBar
                         minAngle={15}
                         background
                         clockWise
                         dataKey="value"
+                        
                     />
                 </RadialBarChart>
             </ResponsiveContainer>
             <div style={{ textAlign: 'center', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-                <h1>{`${userScore * 100}%`}</h1>
+                <h2>{`${userScore * 100}%`}</h2>
                 <p>de votre objectif</p>
             </div>
         </div>
