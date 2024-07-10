@@ -52,8 +52,8 @@ const DailyActivity = () => {
         <YAxis yAxisId="right" orientation="right" axisLine={false} tickLine={false} stroke="#74798c" tick={true} ticks={[50,200,400]} domain={[50,400]} />
         <Tooltip  />
         <Legend verticalAlign="top" height={36} iconType="circle" iconSize={8} />
-        <Bar yAxisId="left" dataKey="poids" fill="#000000" barSize={10} radius={[10, 10, 0, 0]} />
-        <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={10} radius={[10, 10, 0, 0]} />
+        <Bar yAxisId="left" dataKey="poids" fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
+        <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={8} radius={[10, 10, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
     </div>

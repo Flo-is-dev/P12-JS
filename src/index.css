@@ -313,6 +313,9 @@ aside small {
   /* max-height: calc(100% - 14px); */
 }
 
+.line {
+  background-color: var(--main-color-red);
+}
 .toile {
   background-color: var(--main-bg-gray);
 }
