@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getUserPerformance } from '../data';
+import { mockUserPerformance } from '../mockData';
 import { useState,useEffect } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
@@ -10,14 +11,7 @@ const UserPerformance = () => {
     const { userId } = useParams(); 
     const [userPerformance, setUserPerformance] = useState("")
 
-    const data = [
-        { subject: 'Intensité', A: 120, fullMark: 150 },
-        { subject: 'Vitesse', A: 98, fullMark: 150 },
-        { subject: 'Force', A: 86, fullMark: 150 },
-        { subject: 'Endurance', A: 99, fullMark: 150 },
-        { subject: 'Energie', A: 85, fullMark: 150 },
-        { subject: 'Cardio', A: 65, fullMark: 150 },
-      ];
+    const data = mockUserPerformance;
 
     useEffect(() => {
         const loadData = async () => {

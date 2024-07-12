@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getUserAverageSessions } from '../data';
+import { mockDailyActivity } from '../mockData';
 import { useState,useEffect } from 'react';
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
@@ -10,20 +11,9 @@ const DailyActivity = () => {
     const { userId } = useParams(); 
     const [userDailyActivity, setUserDailyActivity] = useState("")
 
-    console.log("Activity quotidien",userDailyActivity);
+    // console.log("Activity quotidien",userDailyActivity);
 
-    const data = [
-        { day: '1', poids: 70, calories: 240 },
-        { day: '2', poids: 69, calories: 220 },
-        { day: '3', poids: 68, calories: 356 },
-        { day: '4', poids: 70, calories: 300 },
-        { day: '5', poids: 69, calories: 220 },
-        { day: '6', poids: 70, calories: 200 },
-        { day: '7', poids: 69, calories: 290 },
-        { day: '8', poids: 70, calories: 350 },
-        { day: '9', poids: 69, calories: 220 },
-        { day: '10', poids: 70, calories: 320 },
-    ];
+    const data = mockDailyActivity;
 
     //   const dataWeightMin = Math.min(...data.map(item => item.weight));
     //   const dataWeightMax = Math.max(...data.map(item => item.weight));

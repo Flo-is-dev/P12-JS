@@ -4,6 +4,7 @@ export async function getUserInfo(userId) {
   try {
     const response = await axios.get(`http://localhost:3000/user/${userId}`);
     const userData = response.data;
+
     return userData;
   } catch (error) {
     console.error("Error fetching user information:", error);

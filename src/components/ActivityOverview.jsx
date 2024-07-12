@@ -41,7 +41,6 @@ const ActivityOverview = () => {
         loadData();
     }, [userId]);
 
-    // console.log("15926",keyData);
 
   return (
     <div className="activityContainer">

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { getUserAverageSessions } from '../data';
+import { mockAverageDuration } from '../mockData';
 import { useState,useEffect } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, CartesianGrid, YAxis } from 'recharts';
 
@@ -11,15 +12,8 @@ const AverageDuration = () => {
     const { userId } = useParams(); 
     const [userAverageDuration, setUserAverageDuration] = useState("")
 
-    const data = [
-        { day: 'L', sessionLength: 30 },
-        { day: 'M', sessionLength: 45 },
-        { day: 'M', sessionLength: 50 },
-        { day: 'J', sessionLength: 68 },
-        { day: 'V', sessionLength: 60 },
-        { day: 'S', sessionLength: 75 },
-        { day: 'D', sessionLength: 90 },
-      ];
+    // on définie la valeur que Data prendra entre API et mock
+    const data = mockAverageDuration;
 
     useEffect(() => {
         const loadData = async () => {

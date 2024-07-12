@@ -27,7 +27,6 @@ function User() {
         loadData();
     }, [userId]);
 
-    console.log("***userData",userScore);
  
   return (
     <div className='appContainer'>
