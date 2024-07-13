@@ -2,7 +2,6 @@ import activity1 from "../assets/img/calories-icon.png"
 import activity2 from "../assets/img/protein-icon.png"
 import activity3 from "../assets/img/carbs-icon.png"
 import activity4 from "../assets/img/fat-icon.png"
-// import data from "../data.json";
 import { useState, useEffect } from 'react';
 import {fetchActivityOverview} from '../data';
 import { useParams } from 'react-router-dom';
@@ -13,8 +12,6 @@ const ActivityOverview = () => {
 
     const { userId } = useParams(); 
     
-    // let keyData = data.data.id12.keyData
-    // console.log(keyData);
 
     const [keyData, setKeyData] = useState({
         calorieCount: 0,

@@ -33,7 +33,7 @@ button {
 .appContainer {
   max-width: 1440px;
   height: 100vh;
-  margin: auto;
+  /* margin: auto; */
   background-color: white;
 }
 
@@ -71,6 +71,18 @@ p {
   height: 100vh;
   background: linear-gradient(120deg, #c1d0ff, #facedd);
   position: relative;
+  opacity: 1;
+}
+
+.backgroundApi {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(20deg, #1c3789, #7e1639);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.backgroundApi.active {
+  opacity: 1;
 }
 
 .background span.title {
@@ -191,11 +203,11 @@ input:checked + .slider:before {
 header {
   position: sticky;
   height: 10vh;
-  width: 100%;
+  width: 100vw;
   background-color: var(--main-bg-black);
   color: white;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   z-index: 2;
 }
@@ -214,6 +226,7 @@ header {
 
 nav {
   width: 80%;
+  max-width: 900px;
 }
 
 nav ul {

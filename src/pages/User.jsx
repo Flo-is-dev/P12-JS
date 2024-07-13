@@ -33,9 +33,12 @@ function User() {
         <Navigation/>
         <Aside/>
         <div className='contentContainer'>
-            <h1>Bonjour <span className='red'>{userName}</span></h1>
-            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-            <Content userScore={userScore} />
+            <div style={{width: "fit-content",margin: "auto"}}>
+               <h1>Bonjour <span className='red'>{userName}</span></h1>
+                <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+                <Content userScore={userScore} /> 
+            </div>
+            
         </div>
     </div>
   )
