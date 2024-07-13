@@ -9,10 +9,9 @@ export default function ThemeProvider(props){
     // prevState permet se prémunir des click multiples
     function toggleCallData() {
         setCallApi(prevState => !prevState);
-
     }
 
-    // Utilise useEffect pour réagir aux changements de callApi
+    // on tilise useEffect pour réagir aux changements de callApi
     useEffect(() => {
         const bg = document.querySelector(".background");
         const bgApi = document.querySelector(".backgroundApi");

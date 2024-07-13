@@ -214,6 +214,7 @@ header {
 
 .logo {
   width: 20%;
+  max-width: 215px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -300,7 +301,7 @@ aside small {
 }
 
 .contentBoard {
-  background-color: lightsalmon;
+  /* background-color: lightsalmon; */
   height: 90%;
   min-width: 950px;
   max-width: 1025px;

@@ -20,8 +20,8 @@ const Login = () => {
     <div className="background">
         <div className="backgroundApi"></div>
         <div className="loginCardContainer"><div className="logo">
-                            <img src={logo1} alt="" />
-                            <img src={logo2} alt="" />
+                            <img src={logo1} alt="logo sportsee" />
+                            <img src={logo2} alt="logo sportsee text" />
                         </div>
                     <div className="loginContainer">
                         
