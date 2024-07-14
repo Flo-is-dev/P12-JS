@@ -16,8 +16,8 @@ const DailyActivity = () => {
     const [userDailyActivity, setUserDailyActivity] = useState([])
     // tableau importé via le call API
     const [apiDailyActivity, setApiDailyActivity] = useState([])
-    // tableau importé via le call MOCK
-    const [mockedDailyActivity, setMockedDailyActivity] = useState(mockDailyActivity)
+    // tableau importé via le call MOCK et setter supprimé car non utile
+    const [mockedDailyActivity] = useState(mockDailyActivity)
     
     useEffect(() => {
         setUserDailyActivity(callApi ? apiDailyActivity : mockDailyActivity);

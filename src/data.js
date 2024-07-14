@@ -51,33 +51,16 @@ export async function getUserPerformance(userId) {
   }
 }
 
-export const fetchActivityOverview = async (userId) => {
-  try {
-    const response = await fetch(`http://localhost:3000/user/${userId}`);
-    const data = await response.json();
-    if (response.ok) {
-      return data.data.keyData;
-    } else {
-      throw new Error("Error fetching glucide count data");
-    }
-  } catch (error) {
-    throw new Error("Error fetching glucide count data:" + error);
-  }
-};
-
-// TODO exemple de de switch MOCK & CALL API
-
-// export const fetchLipidesCount = async (userId) => {
-//     try {
-//       let url = mockVar ? "./data.json" : "localhost:3000/user/${userId}";
-//       const response = await fetch(`http://localhost:3000/user/${userId}`);
-//       const data = await response.json();
-//       if (response.ok) {
-//         return data.data.keyData.lipidCount;
-//       } else {
-//         throw new Error("Error fetching lipide count data");
-//       }
-//     } catch (error) {
-//       throw new Error("Error fetching lipide count data:" + error);
+// export const fetchActivityOverview = async (userId) => {
+//   try {
+//     const response = await fetch(`http://localhost:3000/user/${userId}`);
+//     const data = await response.json();
+//     if (response.ok) {
+//       return data.data.keyData;
+//     } else {
+//       throw new Error("Error fetching glucide count data");
 //     }
-//   };
+//   } catch (error) {
+//     throw new Error("Error fetching glucide count data:" + error);
+//   }
+// };

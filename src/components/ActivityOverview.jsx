@@ -3,7 +3,7 @@ import activity2 from "../assets/img/protein-icon.png"
 import activity3 from "../assets/img/carbs-icon.png"
 import activity4 from "../assets/img/fat-icon.png"
 import { useState, useEffect } from 'react';
-import {fetchActivityOverview} from '../data';
+import {getUserInfo} from '../data';
 import { useParams } from 'react-router-dom';
 
 
@@ -23,7 +23,9 @@ const ActivityOverview = () => {
     useEffect(() => {
         const loadData = async () => {
             try {
-                const activity = await fetchActivityOverview(userId);
+                const data = await getUserInfo(userId);
+                console.log("9999",data);
+                const activity = data.data.keyData;
                
                 setKeyData({
                     calorieCount: activity.calorieCount,
