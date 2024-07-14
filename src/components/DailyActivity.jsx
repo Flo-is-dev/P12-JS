@@ -1,41 +1,55 @@
 import { useParams } from 'react-router-dom';
-import { getUserAverageSessions } from '../data';
+import { formatUserAverageSessions } from '../formatData';
 import { mockDailyActivity } from '../mockData';
 import { useState,useEffect } from 'react';
-
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
+import { ThemeContext } from '../context/ThemeProvider';
+import { useContext } from 'react';
 
 const DailyActivity = () => {
 
+    const {callApi } = useContext(ThemeContext)
+    console.log(callApi);
+
     const { userId } = useParams(); 
-    const [userDailyActivity, setUserDailyActivity] = useState("")
+    // valeure utilisée globalement pour le graphique
+    const [userDailyActivity, setUserDailyActivity] = useState([])
+    // tableau importé via le call API
+    const [apiDailyActivity, setApiDailyActivity] = useState([])
+    // tableau importé via le call MOCK
+    const [mockedDailyActivity, setMockedDailyActivity] = useState(mockDailyActivity)
+    
+    useEffect(() => {
+        setUserDailyActivity(callApi ? apiDailyActivity : mockDailyActivity);
+        console.log("7777",userDailyActivity);
+    }, [callApi, apiDailyActivity, mockedDailyActivity]);
 
-    // console.log("Activity quotidien",userDailyActivity);
 
-    const data = mockDailyActivity;
+    useEffect(() => {
+        const loadSessions = async () => {
+            try {
+                const formattedSessions = await formatUserAverageSessions(userId);
+                console.log("555formattedSessions", formattedSessions);
+                setApiDailyActivity(formattedSessions);
+    
+            } catch (error) {
+                console.error("Error loading sessions:", error);
+            }
+        };
+    
+        loadSessions();
+    }, [userId]);
+    
 
     //   const dataWeightMin = Math.min(...data.map(item => item.weight));
     //   const dataWeightMax = Math.max(...data.map(item => item.weight));
 
 
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const userDailyActivity = await getUserAverageSessions(userId);
-                setUserDailyActivity(userDailyActivity);
-            } catch (error) {
-                console.error("Failed to fetch key data:", error);
-            }
-        };
-        loadData();
-    }, [userId]);
-
 
   return (
     <div className="chart"> 
          <ResponsiveContainer width="100%" height="100%">
-      <BarChart data={data} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
+      <BarChart data={userDailyActivity} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
         <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,150,400]} />
         <XAxis dataKey="day" tickLine={false} />
         <YAxis yAxisId="left" orientation="left" stroke="white" tick={false} />

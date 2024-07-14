@@ -11,18 +11,23 @@ export default function ThemeProvider(props){
         setCallApi(prevState => !prevState);
     }
 
-    // on tilise useEffect pour réagir aux changements de callApi
+    // on utilise useEffect pour réagir aux changements de callApi
     useEffect(() => {
         const bg = document.querySelector(".background");
         const bgApi = document.querySelector(".backgroundApi");
-        
-            if (callApi) {
+
+        // ce html n'existe pas (donc hors login.jsx) ce code ne se joue pas
+        if (bg && bgApi) {
+             if (callApi) {
                 bg.classList.add("active");
                 bgApi.classList.add("active");
             } else {
                 bg.classList.remove("active");
                 bgApi.classList.remove("active");
             }
+        }
+        
+           
     }, [callApi]);
 
     return (

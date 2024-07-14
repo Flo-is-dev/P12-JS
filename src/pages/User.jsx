@@ -20,6 +20,7 @@ function User() {
                 setUserScore(todayScore ? todayScore : score
                 )
                 setUserName(userName.data.userInfos.firstName);
+                
             } catch (error) {
                 console.error("Failed to fetch key data:", error);
             }

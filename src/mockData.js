@@ -1,3 +1,19 @@
+export const mockUser = {
+  id: 18,
+  userInfos: {
+    firstName: "Cecilia",
+    lastName: "Ratorez",
+    age: 34,
+  },
+  score: 0.3,
+  keyData: {
+    calorieCount: 2500,
+    proteinCount: 90,
+    carbohydrateCount: 150,
+    lipidCount: 120,
+  },
+};
+
 export const mockDailyActivity = [
   { day: "1", poids: 70, calories: 240 },
   { day: "2", poids: 69, calories: 220 },

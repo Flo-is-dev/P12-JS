@@ -9,16 +9,17 @@ const Login = () => {
 
     const {toggleCallData,callApi } = useContext(ThemeContext)
     console.log(callApi);
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(callApi);
+
 
     const handleChange = () => {
         setChecked(!checked);
         toggleCallData()
     };
-
+    
   return (
-    <div className="background">
-        <div className="backgroundApi"></div>
+    <div className={`background ${checked ? 'active' : ''}`}>
+        <div className={`backgroundApi ${checked ? 'active' : ''}`}></div>
         <div className="loginCardContainer"><div className="logo">
                             <img src={logo1} alt="logo sportsee" />
                             <img src={logo2} alt="logo sportsee text" />

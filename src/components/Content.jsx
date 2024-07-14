@@ -9,10 +9,6 @@ import PropTypes from 'prop-types';
 
 const Content = ({userScore}) => {
 
-//   let data = require("../data/data.json");
-//  let keyData = data.data.id12.keyData
-//   console.log(keyData);
-
   return (
     <div className="contentBoard">
         <DailyActivity />
@@ -24,7 +20,7 @@ const Content = ({userScore}) => {
   )
 }
 
-// TODO préciser le type correct -----------------------------------------------------
+// TODO préciser le type correct (pb si props est un tableau/objet ?-----------------------------------------------------
 Content.propTypes = {
     userScore: PropTypes.number.isRequired
   }
