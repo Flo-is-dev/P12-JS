@@ -18,7 +18,7 @@ export async function getUserActivity(userId) {
       `http://localhost:3000/user/${userId}/activity`
     );
     const activityData = response.data;
-    return activityData;
+    return activityData.data;
   } catch (error) {
     console.error("Error fetching user activity:", error);
     return null;

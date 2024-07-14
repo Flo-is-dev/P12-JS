@@ -21,7 +21,6 @@ const DailyActivity = () => {
     
     useEffect(() => {
         setUserDailyActivity(callApi ? apiDailyActivity : mockDailyActivity);
-        console.log("7777",userDailyActivity);
     }, [callApi, apiDailyActivity, mockedDailyActivity]);
 
 
@@ -29,11 +28,11 @@ const DailyActivity = () => {
         const loadSessions = async () => {
             try {
                 const formattedSessions = await formatUserAverageSessions(userId);
-                console.log("555formattedSessions", formattedSessions);
+                console.log("5555", formattedSessions);
                 setApiDailyActivity(formattedSessions);
     
             } catch (error) {
-                console.error("Error loading sessions:", error);
+                console.error("Erreur de chargement des data API:", error);
             }
         };
     
