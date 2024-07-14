@@ -7,10 +7,12 @@ const UserScore = ({ userScore }) => {
     const data = [
         {
             name: 'Score',
-            value: userScore * 100,
+            value: 90 +  450 * userScore  ,
             fill: '#FF0000',
         },
     ];
+
+    console.log("data.value",data[0].value);
 
     const style = {
         top: '50%',
@@ -31,14 +33,15 @@ const UserScore = ({ userScore }) => {
                     barSize={10}
                     data={data}
                     startAngle={90}
-                    endAngle={150}
+                    endAngle={data[0].value}
                 >
+                    
                     <RadialBar
                         minAngle={15}
                         background
                         clockWise
                         dataKey="value"
-                        
+                        cornerRadius={10}
                     />
                 </RadialBarChart>
             </ResponsiveContainer>
@@ -46,6 +49,7 @@ const UserScore = ({ userScore }) => {
                 <h2>{`${userScore * 100}%`}</h2>
                 <p>de votre objectif</p>
             </div>
+           
         </div>
     );
 };
