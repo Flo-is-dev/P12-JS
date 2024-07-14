@@ -9,7 +9,7 @@ import { useContext } from 'react';
 const DailyActivity = () => {
 
     const {callApi } = useContext(ThemeContext)
-    console.log(callApi);
+    console.log("check",callApi);
 
     const { userId } = useParams(); 
     // valeure utilisée globalement pour le graphique
@@ -28,7 +28,6 @@ const DailyActivity = () => {
         const loadSessions = async () => {
             try {
                 const formattedSessions = await formatUserAverageSessions(userId);
-                console.log("5555", formattedSessions);
                 setApiDailyActivity(formattedSessions);
     
             } catch (error) {
@@ -39,11 +38,8 @@ const DailyActivity = () => {
         loadSessions();
     }, [userId]);
     
-
     //   const dataWeightMin = Math.min(...data.map(item => item.weight));
     //   const dataWeightMax = Math.max(...data.map(item => item.weight));
-
-
 
   return (
     <div className="chart"> 

@@ -12,7 +12,6 @@ const ActivityOverview = () => {
 
     const { userId } = useParams(); 
     
-
     const [keyData, setKeyData] = useState({
         calorieCount: 0,
         proteinCount: 0,
@@ -24,7 +23,6 @@ const ActivityOverview = () => {
         const loadData = async () => {
             try {
                 const data = await getUserInfo(userId);
-                console.log("9999",data);
                 const activity = data.data.keyData;
                
                 setKeyData({
@@ -53,19 +51,19 @@ const ActivityOverview = () => {
         <div className="activityCard">
             <img src={activity2} alt="icon protéines" />
             <span className="activityNumber">{keyData.proteinCount}g</span>
-            <span className="activityTitle">Calories</span>  
+            <span className="activityTitle">Proteines</span>  
         </div>
 
         <div className="activityCard">
             <img src={activity3} alt="icon glucides" />
             <span className="activityNumber">{keyData.carbohydrateCount}g</span>
-            <span className="activityTitle">Calories</span>  
+            <span className="activityTitle">Glucides</span>  
         </div>
 
         <div className="activityCard">
             <img src={activity4} alt="icon lipides" />
             <span className="activityNumber">{keyData.lipidCount}g</span>
-            <span className="activityTitle">Calories</span>  
+            <span className="activityTitle">Lipides</span>  
         </div>
 
     </div>

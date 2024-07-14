@@ -358,7 +358,7 @@ aside small {
 }
 
 .activityCard {
-  padding: 32px;
+  padding: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
@@ -385,5 +385,5 @@ aside small {
   margin-left: 15px;
   color: var(--main-txt-lightgray);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
 }
