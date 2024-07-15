@@ -22,7 +22,7 @@ export const formatUserAverageSessions = async (userId) => {
   }
 };
 
-export const formatAverageSessions = async (userId) => {
+export const formatAverageDuration = async (userId) => {
   try {
     const sessions = await getUserAverageSessions(userId);
     if (!sessions) {

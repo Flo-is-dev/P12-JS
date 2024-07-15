@@ -8,7 +8,7 @@ import { ThemeContext } from '../context/ThemeProvider';
 const DailyActivity = () => {
 
     const {callApi } = useContext(ThemeContext)
-    console.log("check",callApi);
+
 
     const { userId } = useParams(); 
 
