@@ -4,9 +4,6 @@ import { mockAverageDuration } from '../mockData';
 import { useState,useEffect } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, CartesianGrid, YAxis } from 'recharts';
 
-
-
-
 const AverageDuration = () => {
 
     const { userId } = useParams(); 

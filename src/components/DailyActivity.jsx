@@ -11,7 +11,7 @@ const DailyActivity = () => {
     console.log("check",callApi);
 
     const { userId } = useParams(); 
-    // valeure utilisée globalement pour le graphique
+
     const [userDailyActivity, setUserDailyActivity] = useState([])
 
 
