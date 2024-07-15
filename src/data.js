@@ -50,17 +50,3 @@ export async function getUserPerformance(userId) {
     return null;
   }
 }
-
-// export const fetchActivityOverview = async (userId) => {
-//   try {
-//     const response = await fetch(`http://localhost:3000/user/${userId}`);
-//     const data = await response.json();
-//     if (response.ok) {
-//       return data.data.keyData;
-//     } else {
-//       throw new Error("Error fetching glucide count data");
-//     }
-//   } catch (error) {
-//     throw new Error("Error fetching glucide count data:" + error);
-//   }
-// };

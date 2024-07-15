@@ -13,20 +13,6 @@ const AverageDuration = () => {
     const { userId } = useParams(); 
     const [userAverageDuration, setUserAverageDuration] = useState([])
 
-    // on définie la valeur que Data prendra entre API et mock
-    // const data = mockAverageDuration;
-
-    // useEffect(() => {
-    //     const loadData = async () => {
-    //         try {
-    //             const userAverageDuration = await getUserAverageSessions(userId);
-    //             setUserAverageDuration(userAverageDuration);
-    //         } catch (error) {
-    //             console.error("Failed to fetch key data:", error);
-    //         }
-    //     };
-    //     loadData();
-    // }, [userId]);
 
     useEffect(() => {
         const loadSessions = async () => {
@@ -48,7 +34,6 @@ const AverageDuration = () => {
         }
     }, [userId, callApi]);
 
-    console.log("9988",userAverageDuration);
 
   return (
     <div className="line"> 

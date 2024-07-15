@@ -1,4 +1,8 @@
-import { getUserActivity, getUserAverageSessions } from "./data.js";
+import {
+  getUserActivity,
+  getUserAverageSessions,
+  getUserPerformance,
+} from "./data.js";
 
 export const formatUserAverageSessions = async (userId) => {
   try {
@@ -37,6 +41,27 @@ export const formatAverageDuration = async (userId) => {
     }));
   } catch (error) {
     console.error("Error fetching or formatting user sessions:", error);
+    return [];
+  }
+};
+
+export const formatUserPerformance = async (userId) => {
+  try {
+    const performanceData = await getUserPerformance(userId);
+    if (!performanceData) {
+      console.error("No performance data available");
+      return [];
+    }
+
+    const { kind, data } = performanceData;
+
+    return data.map((perf) => ({
+      subject: kind[perf.kind], // Utilisez l'index pour convertir le numéro en nom de performance
+      A: perf.value, // Utilisez la valeur directement
+      fullMark: 150, // Ce semble être une constante dans votre mock
+    }));
+  } catch (error) {
+    console.error("Error fetching or formatting user performance:", error);
     return [];
   }
 };
