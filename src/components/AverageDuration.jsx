@@ -6,9 +6,7 @@ import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, CartesianGrid, YA
 import { ThemeContext } from '../context/ThemeProvider';
 
 const AverageDuration = () => {
-
     const {callApi } = useContext(ThemeContext)
-    console.log("check",callApi);
 
     const { userId } = useParams(); 
     const [userAverageDuration, setUserAverageDuration] = useState([])

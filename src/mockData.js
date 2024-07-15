@@ -1,11 +1,11 @@
 export const mockUser = {
   id: 18,
   userInfos: {
-    firstName: "Cecilia",
+    firstName: "John",
     lastName: "Ratorez",
     age: 34,
   },
-  score: 0.3,
+  score: 0.7,
   keyData: {
     calorieCount: 2500,
     proteinCount: 90,

@@ -9,10 +9,8 @@ import { ThemeContext } from '../context/ThemeProvider';
 const UserPerformance = () => {
     const {callApi } = useContext(ThemeContext)
 
-
     const { userId } = useParams(); 
     const [userPerformance, setUserPerformance] = useState([])
-
 
     useEffect(() => {
         const loadSessions = async () => {

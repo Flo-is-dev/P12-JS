@@ -20,7 +20,7 @@ const Content = ({userScore}) => {
   )
 }
 
-// TODO préciser le type correct (pb si props est un tableau/objet ?-----------------------------------------------------
+
 Content.propTypes = {
     userScore: PropTypes.number.isRequired
   }

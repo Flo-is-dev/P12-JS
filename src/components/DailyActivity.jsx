@@ -6,14 +6,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 import { ThemeContext } from '../context/ThemeProvider';
 
 const DailyActivity = () => {
-
     const {callApi } = useContext(ThemeContext)
-
-
+    console.log("check",callApi);
     const { userId } = useParams(); 
 
     const [userDailyActivity, setUserDailyActivity] = useState([])
-
 
     useEffect(() => {
         const loadSessions = async () => {
