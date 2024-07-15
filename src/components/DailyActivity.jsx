@@ -1,10 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { formatUserAverageSessions } from '../formatData';
 import { mockDailyActivity } from '../mockData';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useContext } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
-import { useContext } from 'react';
 
 const DailyActivity = () => {
 
@@ -14,31 +13,27 @@ const DailyActivity = () => {
     const { userId } = useParams(); 
     // valeure utilisée globalement pour le graphique
     const [userDailyActivity, setUserDailyActivity] = useState([])
-    // tableau importé via le call API
-    const [apiDailyActivity, setApiDailyActivity] = useState([])
-    
-    useEffect(() => {
-        setUserDailyActivity(callApi ? apiDailyActivity : mockDailyActivity);
-    }, [callApi, apiDailyActivity]);
 
 
     useEffect(() => {
-        
         const loadSessions = async () => {
             try {
                 const formattedSessions = await formatUserAverageSessions(userId);
-                return formattedSessions
-                // setApiDailyActivity(formattedSessions);
-    
+                return formattedSessions;
             } catch (error) {
                 console.error("Erreur de chargement des data API:", error);
+                return [];  // Retourner un tableau vide en cas d'erreur
             }
         };
     
-        const result = callApi ? loadSessions() : mockDailyActivity;
-        setApiDailyActivity(result);
-
-    }, [userId]);
+        if (callApi) {
+            loadSessions().then(formattedSessions => {
+                setUserDailyActivity(formattedSessions);
+            });
+        } else {
+            setUserDailyActivity(mockDailyActivity);
+        }
+    }, [userId, callApi]);
     
     //   const dataWeightMin = Math.min(...data.map(item => item.weight));
     //   const dataWeightMax = Math.max(...data.map(item => item.weight));
