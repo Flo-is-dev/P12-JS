@@ -18,16 +18,14 @@ export default function ThemeProvider(props){
 
         // ce html n'existe pas (donc hors login.jsx) ce code ne se joue pas
         if (bg && bgApi) {
-             if (callApi) {
+            if (callApi) {
                 bg.classList.add("active");
                 bgApi.classList.add("active");
             } else {
                 bg.classList.remove("active");
                 bgApi.classList.remove("active");
             }
-        }
-        
-           
+        } 
     }, [callApi]);
 
     return (

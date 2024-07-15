@@ -16,26 +16,28 @@ const DailyActivity = () => {
     const [userDailyActivity, setUserDailyActivity] = useState([])
     // tableau importé via le call API
     const [apiDailyActivity, setApiDailyActivity] = useState([])
-    // tableau importé via le call MOCK et setter supprimé car non utile
-    const [mockedDailyActivity] = useState(mockDailyActivity)
     
     useEffect(() => {
         setUserDailyActivity(callApi ? apiDailyActivity : mockDailyActivity);
-    }, [callApi, apiDailyActivity, mockedDailyActivity]);
+    }, [callApi, apiDailyActivity]);
 
 
     useEffect(() => {
+        
         const loadSessions = async () => {
             try {
                 const formattedSessions = await formatUserAverageSessions(userId);
-                setApiDailyActivity(formattedSessions);
+                return formattedSessions
+                // setApiDailyActivity(formattedSessions);
     
             } catch (error) {
                 console.error("Erreur de chargement des data API:", error);
             }
         };
     
-        loadSessions();
+        const result = callApi ? loadSessions() : mockDailyActivity;
+        setApiDailyActivity(result);
+
     }, [userId]);
     
     //   const dataWeightMin = Math.min(...data.map(item => item.weight));
