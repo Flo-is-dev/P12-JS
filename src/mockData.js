@@ -2,15 +2,15 @@ export const mockUser = {
   id: 18,
   userInfos: {
     firstName: "John",
-    lastName: "Ratorez",
-    age: 34,
+    lastName: "Doe",
+    age: 55,
   },
   score: 0.7,
   keyData: {
-    calorieCount: 2500,
-    proteinCount: 90,
-    carbohydrateCount: 150,
-    lipidCount: 120,
+    calorieCount: 3333,
+    proteinCount: 22,
+    carbohydrateCount: 111,
+    lipidCount: 444,
   },
 };
 

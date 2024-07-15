@@ -2,13 +2,14 @@ import activity1 from "../assets/img/calories-icon.png"
 import activity2 from "../assets/img/protein-icon.png"
 import activity3 from "../assets/img/carbs-icon.png"
 import activity4 from "../assets/img/fat-icon.png"
-import { useState, useEffect } from 'react';
+import { useState, useEffect,useContext } from 'react';
 import {getUserInfo} from '../data';
+import { mockUser } from '../mockData';
 import { useParams } from 'react-router-dom';
-
-
+import { ThemeContext } from '../context/ThemeProvider';
 
 const ActivityOverview = () => {
+    const {callApi } = useContext(ThemeContext)
 
     const { userId } = useParams(); 
     
@@ -19,25 +20,30 @@ const ActivityOverview = () => {
         lipidCount: 0
     });
 
+
     useEffect(() => {
-        const loadData = async () => {
+        const loadSessions = async () => {
             try {
-                const data = await getUserInfo(userId);
-                const activity = data.data.keyData;
-               
-                setKeyData({
-                    calorieCount: activity.calorieCount,
-                    proteinCount: activity.proteinCount,
-                    carbohydrateCount: activity.carbohydrateCount,
-                    lipidCount: activity.lipidCount
-                });
+                const formattedSessions = await getUserInfo(userId);
+                return formattedSessions.data;
             } catch (error) {
-                console.error("Failed to fetch key data:", error);
+                console.error("Erreur de chargement des data API:", error);
+                return [];  // Retourner un tableau vide en cas d'erreur
             }
         };
-        loadData();
-    }, [userId]);
-
+    
+        if (callApi) {
+            loadSessions().then(formattedSessions => {
+                setKeyData({calorieCount: formattedSessions.keyData.calorieCount,
+                            proteinCount: formattedSessions.keyData.proteinCount,
+                            carbohydrateCount: formattedSessions.keyData.carbohydrateCount,
+                            lipidCount: formattedSessions.keyData.lipidCount
+                                });
+            });
+        } else {
+            setKeyData(mockUser.keyData);
+        }
+    }, [userId, callApi]);
 
   return (
     <div className="activityContainer">
