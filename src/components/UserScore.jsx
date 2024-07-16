@@ -7,7 +7,7 @@ const UserScore = ({ userScore }) => {
     const data = [
         {
             name: 'Score',
-            value: 90 +  450 * userScore  ,
+            value: 90 +  360 * userScore ,
             fill: '#FF0000',
         },
     ];
