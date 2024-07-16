@@ -37,7 +37,7 @@ const DailyActivity = () => {
 
   return (
     <div className="chart"> 
-         <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%">
             <BarChart data={userDailyActivity} barGap={10} margin={{ top: 10, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,150,400]} />
                 <XAxis dataKey="day" tickLine={false} />

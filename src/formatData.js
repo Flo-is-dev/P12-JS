@@ -36,8 +36,8 @@ export const formatAverageDuration = async (userId) => {
 
     const dayLabels = ["L", "M", "M", "J", "V", "S", "D"];
     return sessions.map((session) => ({
-      day: dayLabels[session.day - 1], // Utilisez l'index pour convertir le numéro de jour en label
-      sessionDuration: session.sessionLength, // Renomme sessionLength en sessionDuration
+      day: dayLabels[session.day - 1],
+      sessionDuration: session.sessionLength,
     }));
   } catch (error) {
     console.error("Error fetching or formatting user sessions:", error);
@@ -56,9 +56,9 @@ export const formatUserPerformance = async (userId) => {
     const { kind, data } = performanceData;
 
     return data.map((perf) => ({
-      subject: kind[perf.kind], // Utilisez l'index pour convertir le numéro en nom de performance
-      A: perf.value, // Utilisez la valeur directement
-      fullMark: 150, // Ce semble être une constante dans votre mock
+      subject: kind[perf.kind],
+      A: perf.value,
+      fullMark: 150,
     }));
   } catch (error) {
     console.error("Error fetching or formatting user performance:", error);

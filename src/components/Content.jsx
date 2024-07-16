@@ -4,8 +4,6 @@ import AverageDuration from "./AverageDuration"
 import UserPerformance from "./UserPerformance"
 import UserScore from "./UserScore"
 import PropTypes from 'prop-types';
-// import data from "../data.json";
-
 
 const Content = ({userScore}) => {
 
@@ -19,7 +17,6 @@ const Content = ({userScore}) => {
     </div>
   )
 }
-
 
 Content.propTypes = {
     userScore: PropTypes.number.isRequired
