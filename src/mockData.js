@@ -5,7 +5,7 @@ export const mockUser = {
     lastName: "Doe",
     age: 55,
   },
-  score: 0.7,
+  score: 0.66,
   keyData: {
     calorieCount: 3333,
     proteinCount: 22,
