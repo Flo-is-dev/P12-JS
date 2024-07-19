@@ -4,13 +4,18 @@ import { mockDailyActivity } from '../mockData';
 import { useState,useEffect,useContext } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
+import CustomTooltip from './CustomTooltip';
+
+
 
 const DailyActivity = () => {
     const {callApi } = useContext(ThemeContext)
     console.log("check",callApi);
     const { userId } = useParams(); 
 
-    const [userDailyActivity, setUserDailyActivity] = useState([])
+    const [userDailyActivity, setUserDailyActivity] = useState([]);
+    const [minPoids, setMinPoids] = useState(0);
+    const [maxPoids, setMaxPoids] = useState(0);
 
     useEffect(() => {
         const loadSessions = async () => {
@@ -26,29 +31,15 @@ const DailyActivity = () => {
         if (callApi) {
             loadSessions().then(formattedSessions => {
                 setUserDailyActivity(formattedSessions);
+                setMinPoids(Math.min(...formattedSessions.map(item => item.poids)));
+                setMaxPoids(Math.max(...formattedSessions.map(item => item.poids)));
             });
         } else {
             setUserDailyActivity(mockDailyActivity);
+            setMinPoids(Math.min(...mockDailyActivity.map(item => item.poids)));
+            setMaxPoids(Math.max(...mockDailyActivity.map(item => item.poids)));
         }
     }, [userId, callApi]);
-
-    
-    //   const dataWeightMin = Math.min(...data.map(item => item.weight));
-    //   const dataWeightMax = Math.max(...data.map(item => item.weight));
-
-
-    const CustomTooltip = ({ active, payload, label }) => {
-        if (active && payload && payload.length) {
-          return (
-            <div className="custom-tooltip" style={{ backgroundColor: '#ff0101',color:'#fff', padding: '10px', border: '1px solid #ccc' }}>
-              <p className="intro">{` ${payload[0].value} Kg`}</p>
-              <p>{`${payload[1].value} Kcal`}</p>
-            </div>
-          );
-        }
-      
-        return null;
-      };
 
   return (
     <div className="chart"> 
@@ -58,7 +49,7 @@ const DailyActivity = () => {
                 <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,150,400]} />
                 <XAxis dataKey="day" tickLine={false}  />
                 <YAxis yAxisId="left" orientation="left" stroke="white" tick={false} />
-                <YAxis yAxisId="right" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c" tick={true} ticks={[50,200,400]} domain={[50,400]} />
+                <YAxis yAxisId="right" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c" tick={true} ticks={[70,71,72]} domain={[minPoids, maxPoids]} />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend verticalAlign="top" align="right" height={36} iconType="circle" iconSize={8}   />
                 <Bar yAxisId="left" dataKey="poids" fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
@@ -68,5 +59,6 @@ const DailyActivity = () => {
     </div>
   )
 }
+
 
 export default DailyActivity

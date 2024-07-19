@@ -421,3 +421,9 @@ aside small {
   padding: 15px 5px;
   font-size: 14px;
 }
+.custom-tooltip {
+  background-color: var(--main-color-red);
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
