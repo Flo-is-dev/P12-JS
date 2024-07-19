@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { formatAverageDuration } from '../formatData';
 import { mockAverageDuration } from '../mockData';
 import { useState,useEffect,useContext } from 'react';
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, CartesianGrid, YAxis } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
 
 const AverageDuration = () => {
