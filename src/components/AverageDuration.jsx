@@ -4,6 +4,7 @@ import { mockAverageDuration } from '../mockData';
 import { useState,useEffect,useContext } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
+import CustomTooltipDuration from './CustomTooltipDuration';
 
 const AverageDuration = () => {
     const {callApi } = useContext(ThemeContext)
@@ -40,7 +41,7 @@ const AverageDuration = () => {
             <LineChart data={userAverageDuration} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
             <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} />
             <YAxis hide />
-            <Tooltip  />
+            <Tooltip content={<CustomTooltipDuration />} />
             <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
             </LineChart>
         </ResponsiveContainer>
