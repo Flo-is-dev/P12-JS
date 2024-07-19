@@ -19,7 +19,7 @@ const AverageDuration = () => {
                 return formattedSessions;
             } catch (error) {
                 console.error("Erreur de chargement des data API:", error);
-                return [];  // Retourner un tableau vide en cas d'erreur
+                return [];  
             }
         };
     
@@ -34,16 +34,17 @@ const AverageDuration = () => {
 
 
   return (
-    <div className="line"> 
-    <ResponsiveContainer width="100%" height={250} style={{margin:"auto"}}>
-    <LineChart data={userAverageDuration} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" vertical={false} />
-      <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} />
-      <YAxis hide />
-      <Tooltip  />
-      <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
-    </LineChart>
-  </ResponsiveContainer></div>
+    <div className="line">
+        <h3>Durée moyenne des sessions</h3>
+        <ResponsiveContainer width="100%" height={250} style={{margin:"auto"}}>
+            <LineChart data={userAverageDuration} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+            <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} />
+            <YAxis hide />
+            <Tooltip  />
+            <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+            </LineChart>
+        </ResponsiveContainer>
+    </div>
   )
 }
 export default AverageDuration
