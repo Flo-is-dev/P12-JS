@@ -19,7 +19,7 @@ const UserPerformance = () => {
                 return formattedSessions;
             } catch (error) {
                 console.error("Erreur de chargement des data API:", error);
-                return [];  // Retourner un tableau vide en cas d'erreur
+                return [];
             }
         };
     

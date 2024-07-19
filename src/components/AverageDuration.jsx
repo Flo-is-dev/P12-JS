@@ -5,6 +5,7 @@ import { useState,useEffect,useContext } from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
 import CustomTooltipDuration from './CustomTooltipDuration';
+import CustomCursor from './CustomCursor';
 
 const AverageDuration = () => {
     const {callApi } = useContext(ThemeContext)
@@ -38,11 +39,11 @@ const AverageDuration = () => {
     <div className="line">
         <h3>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height={250} style={{margin:"auto"}}>
-            <LineChart data={userAverageDuration} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-            <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} />
+            <LineChart data={userAverageDuration} margin={{ top: 90, right: 0, left: 0, bottom: 0 }}>
+            <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} tick={{ fill: '#FFFFFF', opacity: '0.5' }}  />
             <YAxis hide />
-            <Tooltip content={<CustomTooltipDuration />} />
-            <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+            <Tooltip content={<CustomTooltipDuration />} cursor={<CustomCursor />}/>
+            <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }}  isAnimationActive={true} animationDuration={500} animationEasing={'linear'} />
             </LineChart>
         </ResponsiveContainer>
     </div>
