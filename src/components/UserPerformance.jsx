@@ -36,10 +36,10 @@ const UserPerformance = () => {
 
     <div className="toile">
         <ResponsiveContainer width="100%" height="100%">
-            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={userPerformance}>
+            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={userPerformance}>
             <PolarGrid radialLines={false} />
             <PolarAngleAxis dataKey="subject" tick={{ fill: '#FFFFFF', fontSize: 12 }} />
-            <PolarRadiusAxis tick={false} axisLine={false} tickLine={false}/>
+            <PolarRadiusAxis tick={false} axisLine={false} tickLine={false} />
             <Radar
                 name="Performance"
                 dataKey="A"

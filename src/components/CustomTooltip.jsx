@@ -9,7 +9,6 @@ const CustomTooltip = ({ active, payload }) => {
         </div>
       );
     }
-    console.log(payload);
   
     return null;
   };
