@@ -4,14 +4,14 @@ import {Rectangle} from "recharts";
 
 const CustomCursor = (props) => {
     const { points, width, height } = props;
-    const { x, y } = points[0];
+    const { x } = points[0];
     console.log(props);
     return (
       <Rectangle
-        fill="#E60000"
-        stroke="#E60000"
+        fill="rgba(0, 0, 0, 0.09)"
+        stroke="rgba(0, 0, 0, 0.09)"
         x={x}
-        y={y}
+        y={0}
         width={width}
         height={height}
       />

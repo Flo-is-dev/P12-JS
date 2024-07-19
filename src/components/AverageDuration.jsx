@@ -39,10 +39,10 @@ const AverageDuration = () => {
     <div className="line">
         <h3>Durée moyenne des sessions</h3>
         <ResponsiveContainer width="100%" height={250} style={{margin:"auto"}}>
-            <LineChart data={userAverageDuration} margin={{ top: 90, right: 0, left: 0, bottom: 0 }}>
-            <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false} tick={{ fill: '#FFFFFF', opacity: '0.5' }}  />
+            <LineChart data={userAverageDuration} style={{ transform: " translateX(-2px)"}} margin={{ top: 90, right: 0, left: 5, bottom: 0 }}>
+            <XAxis dataKey="day" stroke="#FFFFFF" axisLine={false} tickLine={false}  style={{ transform: "scaleX(0.95) translateX(5px)"}} tick={{ fill: '#FFFFFF', opacity: '0.5' }}  />
             <YAxis hide />
-            <Tooltip content={<CustomTooltipDuration />} cursor={<CustomCursor />}/>
+            <Tooltip content={<CustomTooltipDuration />} cursor={<CustomCursor height={250} />}/>
             <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }}  isAnimationActive={true} animationDuration={500} animationEasing={'linear'} />
             </LineChart>
         </ResponsiveContainer>
