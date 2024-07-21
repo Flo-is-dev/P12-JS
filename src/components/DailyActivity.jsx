@@ -16,6 +16,7 @@ const DailyActivity = () => {
     const [userDailyActivity, setUserDailyActivity] = useState([]);
     const [minPoids, setMinPoids] = useState(0);
     const [maxPoids, setMaxPoids] = useState(0);
+    const [midPoids, setMidPoids] = useState(0);
 
     useEffect(() => {
         const loadSessions = async () => {
@@ -33,26 +34,28 @@ const DailyActivity = () => {
                 setUserDailyActivity(formattedSessions);
                 setMinPoids(Math.min(...formattedSessions.map(item => item.poids)));
                 setMaxPoids(Math.max(...formattedSessions.map(item => item.poids)));
+                setMidPoids(maxPoids - 1)
             });
         } else {
             setUserDailyActivity(mockDailyActivity);
             setMinPoids(Math.min(...mockDailyActivity.map(item => item.poids)));
             setMaxPoids(Math.max(...mockDailyActivity.map(item => item.poids)));
+            setMidPoids((maxPoids + minPoids) / 2)
         }
-    }, [userId, callApi]);
+    }, [userId, callApi, maxPoids,minPoids]);
 
   return (
     <div className="chart"> 
             <h3 style={{ textAlign: 'center', position: 'absolute', top: '2%', left: '4%' }}>Activité quotidienne</h3>
             <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={userDailyActivity} barGap={10} margin={{ top: 10, right: 50, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,150,400]} />
+            <BarChart data={userDailyActivity} barGap={10} margin={{ top: 10, right: 30, left: -20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,250,500]} />
                 <XAxis dataKey="day" tickLine={false}  />
-                <YAxis yAxisId="left" orientation="left" stroke="white" tick={false} />
-                <YAxis yAxisId="right" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c" tick={true} ticks={[70,71,72]} domain={[minPoids, maxPoids]} />
+                <YAxis yAxisId="left" orientation="left" stroke="white" tick={false} axisLine={false} />
+                <YAxis yAxisId="right" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c"  tick={true} ticks={[70,71,72]}  domain={[minPoids, maxPoids]} />
                 <Tooltip content={<CustomTooltip />} />
-                <Legend verticalAlign="top" align="right" height={36} iconType="circle" iconSize={8}   />
-                <Bar yAxisId="left" dataKey="poids" fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
+                <Legend verticalAlign="top" align="right" height={maxPoids} iconType="circle" iconSize={8}   />
+                <Bar yAxisId="left" dataKey="poids"  fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
                 <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={8} radius={[10, 10, 0, 0]} />
             </BarChart>
         </ResponsiveContainer>
