@@ -55,11 +55,30 @@ export const formatUserPerformance = async (userId) => {
 
     const { kind, data } = performanceData;
 
-    return data.map((perf) => ({
-      subject: kind[perf.kind],
+    // Objet de traduction
+    const translations = {
+      cardio: "Cardio",
+      energy: "Energie",
+      endurance: "Endurance",
+      strength: "Force",
+      speed: "Vitesse",
+      intensity: "Intensité",
+    };
+
+    // Traduction des mots
+    const translatedKind = Object.keys(kind).reduce((acc, key) => {
+      acc[key] = translations[kind[key]];
+      return acc;
+    }, {});
+
+    // Formatage des données et inversion de l'ordre
+    const formattedData = data.map((perf) => ({
+      subject: translatedKind[perf.kind],
       A: perf.value,
       fullMark: 150,
     }));
+
+    return formattedData.reverse();
   } catch (error) {
     console.error("Error fetching or formatting user performance:", error);
     return [];
