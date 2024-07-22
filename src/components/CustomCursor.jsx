@@ -5,7 +5,7 @@ import {Rectangle} from "recharts";
 const CustomCursor = (props) => {
     const { points, width, height } = props;
     const { x } = points[0];
-    console.log(props);
+    // console.log(props);
     return (
       <Rectangle
         fill="rgba(0, 0, 0, 0.09)"
