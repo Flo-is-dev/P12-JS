@@ -46,7 +46,17 @@ const DailyActivity = () => {
 
   return (
     <div className="chart"> 
-            <h3 style={{ textAlign: 'center', position: 'absolute', top: '2%', left: '4%' }}>Activité quotidienne</h3>
+            <h3>Activité quotidienne</h3>
+            <div className="chart-legend">
+                <div className="legend-poids">
+                    <div></div>
+                    <span>Poids (kg)</span>
+                </div>
+                <div className="legend-calories">
+                    <div></div>
+                    <span>Calories brûlées (kCal)</span>
+                </div>
+            </div>
             <ResponsiveContainer width="100%" height="100%">
             <BarChart data={userDailyActivity} barGap={10} margin={{ top: 10, right: 30, left: -20, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,80,100]} />
