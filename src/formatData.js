@@ -55,7 +55,6 @@ export const formatUserPerformance = async (userId) => {
 
     const { kind, data } = performanceData;
 
-    // Objet de traduction
     const translations = {
       cardio: "Cardio",
       energy: "Energie",
@@ -65,13 +64,11 @@ export const formatUserPerformance = async (userId) => {
       intensity: "Intensité",
     };
 
-    // Traduction des mots
     const translatedKind = Object.keys(kind).reduce((acc, key) => {
       acc[key] = translations[kind[key]];
       return acc;
     }, {});
 
-    // Formatage des données et inversion de l'ordre
     const formattedData = data.map((perf) => ({
       subject: translatedKind[perf.kind],
       A: perf.value,

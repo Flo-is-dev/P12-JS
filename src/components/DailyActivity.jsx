@@ -59,15 +59,14 @@ const DailyActivity = () => {
             </div>
             <ResponsiveContainer width="100%" height="100%">
             <BarChart data={userDailyActivity} barGap={10} margin={{ top: 60, right: 30, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="1 1" vertical={false} horizontalPoints={[50,80,85]} />
+                <CartesianGrid strokeDasharray="2 2" vertical={false} />
                 <XAxis dataKey="day" tickLine={false}  />
-                <YAxis yAxisId="left" orientation="left" stroke="white" tick={false} axisLine={false} />
-                <YAxis yAxisId="right" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c"  tick={true} ticks={[70,71,72]}  domain={[70, 72]} />
+                <YAxis yAxisId="right" orientation="left" stroke="#74798c" tick={false} axisLine={false}   domain={[minPoids, 'auto']} />
+                <YAxis yAxisId="left" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c"  tick={true} tickSize={30} domain={[minPoids - 2, maxPoids + 2]}  />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar yAxisId="left" dataKey="poids"  fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
                 <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={8} radius={[10, 10, 0, 0]} />
             </BarChart>
-            
         </ResponsiveContainer>
     </div>
   )
