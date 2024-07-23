@@ -7,7 +7,7 @@ import { useContext } from 'react';
 const UserScore = ({ userScore }) => {
     const {callApi } = useContext(ThemeContext)
 
-    
+    // data utilise seulement unen donnée dérivée de mes props
     const data = [
         {
             name: 'Score',
@@ -34,8 +34,7 @@ const UserScore = ({ userScore }) => {
                     
                     <RadialBar
                         minAngle={15}
-                        background
-                        clockWise
+                        background={{ fill: '#eee' }}
                         dataKey="value"
                         cornerRadius={10}
                     />
