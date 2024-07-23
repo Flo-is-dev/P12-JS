@@ -2,18 +2,16 @@ import { useParams } from 'react-router-dom';
 import { formatUserAverageSessions } from '../formatData';
 import { mockDailyActivity } from '../mockData';
 import { useState,useEffect,useContext } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { ThemeContext } from '../context/ThemeProvider';
 import CustomTooltip from './CustomTooltip';
-
-
 
 const DailyActivity = () => {
     const {callApi } = useContext(ThemeContext)
     console.log("check",callApi);
     const { userId } = useParams(); 
-
     const [userDailyActivity, setUserDailyActivity] = useState([]);
+    
     const [minPoids, setMinPoids] = useState(0);
     const [maxPoids, setMaxPoids] = useState(0);
     const [midPoids, setMidPoids] = useState(0);
@@ -43,6 +41,8 @@ const DailyActivity = () => {
             setMidPoids((maxPoids + minPoids) / 2)
         }
     }, [userId, callApi]);
+
+  
 
   return (
 
