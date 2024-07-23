@@ -46,6 +46,9 @@ const AverageDuration = () => {
             <Line type="monotone" dataKey="sessionDuration" stroke="white" strokeWidth={2} dot={false} activeDot={{ r: 8 }}  isAnimationActive={true} animationDuration={500} animationEasing={'linear'} />
             </LineChart>
         </ResponsiveContainer>
+        {userAverageDuration.length === 0 && callApi &&(
+                <p className='errorData'>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+            ) }
     </div>
   )
 }

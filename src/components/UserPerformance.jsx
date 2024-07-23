@@ -49,6 +49,9 @@ const UserPerformance = () => {
             />
             </RadarChart>
         </ResponsiveContainer>
+        {userPerformance.length === 0 && callApi &&(
+                <p className='errorData' style={{top:"77%",left:"37.2%",width:"20%"}}>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+            ) }
     </div>
 
 

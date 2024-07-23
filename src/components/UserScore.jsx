@@ -1,8 +1,12 @@
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import PropTypes from 'prop-types';
+import { ThemeContext } from '../context/ThemeProvider';
+import { useContext } from 'react';
 
 
 const UserScore = ({ userScore }) => {
+    const {callApi } = useContext(ThemeContext)
+
     
     const data = [
         {
@@ -41,7 +45,9 @@ const UserScore = ({ userScore }) => {
                 <h2>{`${userScore * 100}%`}</h2>
                 <p>de votre objectif</p>
             </div>
-           
+            { !userScore && callApi &&(
+                <p className='errorData'>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+            ) }
         </div>
     );
 };

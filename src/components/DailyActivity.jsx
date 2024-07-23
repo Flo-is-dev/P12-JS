@@ -45,6 +45,7 @@ const DailyActivity = () => {
     }, [userId, callApi]);
 
   return (
+
     <div className="chart"> 
             <h3>Activité quotidienne</h3>
             <div className="chart-legend">
@@ -58,16 +59,19 @@ const DailyActivity = () => {
                 </div>
             </div>
             <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={userDailyActivity} barGap={10} margin={{ top: 60, right: 30, left: -20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="2 2" vertical={false} />
-                <XAxis dataKey="day" tickLine={false}  />
-                <YAxis yAxisId="right" orientation="left" stroke="#74798c" tick={false} axisLine={false}   domain={[minPoids, 'auto']} />
-                <YAxis yAxisId="left" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c"  tick={true} tickSize={30} domain={[minPoids - 2, maxPoids + 2]}  />
-                <Tooltip content={<CustomTooltip />} />
-                <Bar yAxisId="left" dataKey="poids"  fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
-                <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={8} radius={[10, 10, 0, 0]} />
-            </BarChart>
-        </ResponsiveContainer>
+                <BarChart data={userDailyActivity} barGap={10} margin={{ top: 60, right: 30, left: -20, bottom: 5 }}>
+                    <CartesianGrid strokeDasharray="2 2" vertical={false} />
+                    <XAxis dataKey="day" tickLine={false}  />
+                    <YAxis yAxisId="right" orientation="left" stroke="#74798c" tick={false} axisLine={false}   domain={[minPoids, 'auto']} />
+                    <YAxis yAxisId="left" orientation="right" axisLine={false}  tickLine={false} stroke="#74798c"  tick={true} tickSize={30} domain={[minPoids - 2, maxPoids + 2]}  />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Bar yAxisId="left" dataKey="poids"  fill="#282D30" barSize={8} radius={[10, 10, 0, 0]} />
+                    <Bar yAxisId="right" dataKey="calories" fill="#FF0000" barSize={8} radius={[10, 10, 0, 0]} />
+                </BarChart>
+            </ResponsiveContainer>
+            {userDailyActivity.length === 0 && callApi &&(
+                <p className='errorData'>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+            ) }
     </div>
   )
 }

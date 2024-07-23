@@ -10,16 +10,13 @@ import { ThemeContext } from '../context/ThemeProvider';
 
 const ActivityOverview = () => {
     const {callApi } = useContext(ThemeContext)
-
     const { userId } = useParams(); 
-    
     const [keyData, setKeyData] = useState({
         calorieCount: 0,
         proteinCount: 0,
         carbohydrateCount: 0,
         lipidCount: 0
     });
-
 
     useEffect(() => {
         const loadSessions = async () => {
@@ -50,25 +47,25 @@ const ActivityOverview = () => {
 
         <div className="activityCard">
             <img src={activity1} alt="icon calories" />
-            <span className="activityNumber">{keyData.calorieCount}kCal</span>
+            <span className="activityNumber">{keyData?.calorieCount ? keyData?.calorieCount + "kCal" : "N/A"}</span>
             <span className="activityTitle">Calories</span>  
         </div>
 
         <div className="activityCard">
             <img src={activity2} alt="icon protéines" />
-            <span className="activityNumber">{keyData.proteinCount}g</span>
+            <span className="activityNumber">{keyData?.proteinCount ? keyData.proteinCount + "g" : "N/A"}</span>
             <span className="activityTitle">Proteines</span>  
         </div>
 
         <div className="activityCard">
             <img src={activity3} alt="icon glucides" />
-            <span className="activityNumber">{keyData.carbohydrateCount}g</span>
+            <span className="activityNumber">{keyData?.carbohydrateCount ? keyData.carbohydrateCount + "g" : "N/A"}</span>
             <span className="activityTitle">Glucides</span>  
         </div>
 
         <div className="activityCard">
             <img src={activity4} alt="icon lipides" />
-            <span className="activityNumber">{keyData.lipidCount}g</span>
+            <span className="activityNumber">{keyData?.lipidCount ? keyData.lipidCount + "g" : "N/A"}</span>
             <span className="activityTitle">Lipides</span>  
         </div>
 
