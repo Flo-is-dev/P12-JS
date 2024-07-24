@@ -8,7 +8,7 @@ import CustomTooltip from './CustomTooltip';
 
 const DailyActivity = () => {
     const {callApi } = useContext(ThemeContext)
-    console.log("check",callApi);
+    console.log("is Switch ON?",callApi);
     const { userId } = useParams(); 
     const [userDailyActivity, setUserDailyActivity] = useState([]);
     

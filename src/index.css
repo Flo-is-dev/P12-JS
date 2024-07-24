@@ -332,6 +332,11 @@ aside small {
   border-radius: 5px;
   max-height: 36vh;
   /* max-height: calc(100% - 14px); */
+  max-width: 300px;
+}
+
+.chart {
+  max-width: 800px;
 }
 
 .line {

@@ -8,7 +8,7 @@ import { useContext } from 'react';
 const Login = () => {
 
     const {toggleCallData,callApi } = useContext(ThemeContext)
-    console.log(callApi);
+    console.log("is Switch ON?",callApi);
     const [checked, setChecked] = useState(callApi);
 
 
