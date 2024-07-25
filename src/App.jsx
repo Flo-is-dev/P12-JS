@@ -21,11 +21,11 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/User/:userId" element={<User />} />
         <Route path="*" element={<Error />} />
-        <Route path="/User/18/averageDuration" element={<AverageDuration />} />
-          <Route path="/User/18/dailyActivity" element={<DailyActivity />} />
-          <Route path="/User/18/userPerformance" element={<UserPerformance />} />
-          <Route path="/User/18/userScore" element={<UserScore userScore={userScore} />} />
-          <Route path="/User/18/activityOverview" element={<ActivityOverview />} />
+        <Route path="/User/:userId/averageDuration" element={<AverageDuration />} />
+          <Route path="/User/:userId/dailyActivity" element={<DailyActivity />} />
+          <Route path="/User/:userId/userPerformance" element={<UserPerformance />} />
+          <Route path="/User/:userId/userScore" element={<UserScore userScore={userScore} />} />
+          <Route path="/User/:userId/activityOverview" element={<ActivityOverview />} />
       </Routes>
     </BrowserRouter>
   )
